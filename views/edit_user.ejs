@@ -1,0 +1,28 @@
+<%- include("layout/header.ejs") %>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit User (<%= user.name %>)</h2>
+    <form action="/update/<%= user._id %>" method="POST" class="p-4 border rounded bg-light shadow-sm" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<%= user.name %>" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" value="<%= user.email %>"" required />
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" value="<%= user.phone %>"" />
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image" />
+            <input type="hidden"  name="old_image" value="<%= user.image %>" />
+            <img src="/<%= user.image %>" width="50" />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-100">Update User</button>
+        </div>
+    </form>
+</div>
+<%- include("layout/footer.ejs") %>
